@@ -1,14 +1,21 @@
 language: node_js
+node_js:
+  - lts
 cache: yarn
 
 branches: 
   only: 
     - master
+
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version version-number
+  - export PATH="$HOME/.yarn/bin:$PATH"
+
 install:
-  - npm install
+  - yarn
 
 script: 
-  - npm run build
+  - yarn build
 
 deploy:
   provider: script
