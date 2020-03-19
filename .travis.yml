@@ -5,10 +5,10 @@ branches:
   only: 
     - master
 install:
-  - yarn
+  - npm install
 
 script: 
-  - yarn build
+  - npm run build
 
 deploy:
   provider: script
