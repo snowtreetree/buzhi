@@ -1,0 +1,11 @@
+language: node_js
+cache: yarn
+
+branches: 
+  only: 
+    - master
+install:
+  - yarn
+
+script: 
+  - yarn build
