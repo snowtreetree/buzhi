@@ -12,9 +12,9 @@ before_install:
   - export PATH="$HOME/.yarn/bin:$PATH"
   - openssl aes-256-cbc -K $encrypted_40be4da7d498_key -iv $encrypted_40be4da7d498_iv -in id_rsa_lataio.enc -out ~/.ssh/id_rsa_lataio -d
   - chmod 600 ~/.ssh/id_rsa_lataio
-  - echo -e "Host buzhifangxue.com\n\tStrictHostKeyChecking no\n\tIdentityFile ~/.ssh/id_rsa_lataio" >> ~/.ssh/config
-  addons:
-   ssh_known_hosts: buzhifangxue.com
+  # - echo -e "Host buzhifangxue.com\n\tStrictHostKeyChecking no\n\tIdentityFile ~/.ssh/id_rsa_lataio" >> ~/.ssh/config
+  # addons:
+  #  ssh_known_hosts: buzhifangxue.com
 
 install:
   - yarn
