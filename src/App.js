@@ -3,27 +3,6 @@ import './App.css';
 import { Row, Col,Button } from 'antd';
 
 
-
-Function.prototype.bindCus = function bindCus(context) {
-  const self = this;
-  const arg1 = Array.prototype.slice(arguments,1)
-  return function(){
-    return self.apply(context,arg1.concat(Array.prototype.slice(arguments,1)))
-  }
-}
-
-function testBind(name,age) {
-  console.log(name,age)
-  console.log(this.name)
-}
-
-const obj = {name:'zxl'}
-
-const fun = testBind.bind(obj,'name')
-
-fun(18)
-
-
 function App() {
   return (
     <div>
