@@ -22,7 +22,7 @@ script:
 
 after_success:
   - cd build
-  - scp -o stricthostkeychecking=no -r ./* latiaon@lbinin.com:/www/buzhi
+  - scp -o stricthostkeychecking=no -r ./* latiaon@106.14.156.134:/www/buzhi
 
 # deploy:
 #   provider: script
