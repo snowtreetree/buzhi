@@ -20,8 +20,12 @@ install:
 script: 
   - yarn build
 
-deploy:
-  provider: script
-  script: bash deploy.sh
-  on:
-    branch: master
+after_success:
+  - cd build
+  - scp -o stricthostkeychecking=no -r ./* latiaon@lbinin.com:/www/buzhi
+
+# deploy:
+#   provider: script
+#   script: bash deploy.sh
+#   on:
+#     branch: master
