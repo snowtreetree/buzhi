@@ -3,8 +3,10 @@ import './App.css';
 import { Row, Col,Button,Menu } from 'antd';
 import {GithubOutlined} from '@ant-design/icons'
 import {BrowserRouter as Router,Switch,Link,Route} from 'react-router-dom'
+import ErrorBoundary from './errorBoundary'
 import Home from './pages/home';
 import About from './pages/about'
+import Test from './pages/test'
 
 import {ThemeContext} from './utils/context'
 
@@ -19,6 +21,7 @@ function App() {
   }
   return (
     <div>
+      <ErrorBoundary>
       <ThemeContext.Provider value={menu}>
       <Router>
       <header id="header">
@@ -49,6 +52,9 @@ function App() {
           <Route path="/">
             <Home />
           </Route>
+          <Route path="/test">
+            <Test />
+          </Route>
         </Switch>
       </div>
       <footer>
@@ -58,6 +64,7 @@ function App() {
         </footer>
       </Router>
       </ThemeContext.Provider>
+      </ErrorBoundary>
     </div>
   );
 }
