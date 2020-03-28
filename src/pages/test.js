@@ -26,7 +26,7 @@ function About(params) {
         console.log(ref.current.handleClick())
     }
     return (<div>
-        About
+        Test
         <Use></Use>
         <Button type="primary" onClick={showRef}>ref</Button>
         <RefButton name="ref" ref={ref}/>
