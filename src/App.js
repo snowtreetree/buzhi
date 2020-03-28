@@ -6,8 +6,10 @@ import {BrowserRouter as Router,Switch,Link,Route} from 'react-router-dom'
 import Home from './pages/home';
 import About from './pages/about'
 
+import {ThemeContext} from './utils/context'
+
 function App() {
-  const [menu,setMenu] = useState('home')
+  const [menu,setMenu] = useState(window.location.pathname)
   const handleClick = (e) => {
     if(e.key === 'github') {
       window.open('https://github.com/snowtreetree/buzhi')
@@ -17,6 +19,7 @@ function App() {
   }
   return (
     <div>
+      <ThemeContext.Provider value={menu}>
       <Router>
       <header id="header">
       <Row justify="space-between">
@@ -25,10 +28,10 @@ function App() {
       </Col>
       <Col xs={16} sm={10} md={8} lg={6} xl={5} >
       <Menu id="nav" onClick={handleClick} selectedKeys={[menu]} mode="horizontal">
-        <Menu.Item key="home">
+        <Menu.Item key="/home">
         <Link to="/">首页</Link>
         </Menu.Item>
-        <Menu.Item key="About">
+        <Menu.Item key="/about">
           <Link to="/about">关于</Link>
         </Menu.Item>
         <Menu.Item key="github">
@@ -54,6 +57,7 @@ function App() {
         </div>
         </footer>
       </Router>
+      </ThemeContext.Provider>
     </div>
   );
 }
