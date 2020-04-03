@@ -10,6 +10,7 @@
 - [x] 项目简单搭建
 - [x] travis 自动部署
 - [x] CDN
+- [x] HTTPS
 - [ ] lint相关
 - [ ] webpack
 - [ ] ...
@@ -25,4 +26,9 @@ travis部署时（travis login --auto），安装依赖花了很久，各种配�
 ### nginx
 
 主域名访问(buzhifangxue.com)，一直打不到www*下面，开始以为是NGINX的问题，调了好久。添加CDN的时候才知道没有给域名添加相关主机记录（阿里云的文档还是挺好的）。
+
+### HTTPS
+
+nginx 不在默认安装位置时
+./certbot-auto --nginx --nginx-server-root=/usr/local/nginx/conf
 
