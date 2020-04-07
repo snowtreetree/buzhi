@@ -2,12 +2,8 @@ import React,{useState} from 'react';
 import './App.css';
 import { Row, Col,Button,Menu } from 'antd';
 import {GithubOutlined} from '@ant-design/icons'
-import {BrowserRouter as Router,Switch,Link,Route} from 'react-router-dom'
-import ErrorBoundary from './errorBoundary'
-import Home from './pages/home';
-import About from './pages/about'
-import Test from './pages/test'
-
+import {BrowserRouter as Router, Link} from 'react-router-dom'
+import Routers from './router'
 import {ThemeContext} from './utils/context'
 
 function App() {
@@ -21,15 +17,14 @@ function App() {
   }
   return (
     <div>
-      <ErrorBoundary>
       <ThemeContext.Provider value={menu}>
-      <Router>
       <header id="header">
       <Row justify="space-between">
       <Col xs={4} sm={4} md={4} lg={4}>
       <h1 className="align-center">buZhi&</h1>
       </Col>
       <Col xs={16} sm={10} md={8} lg={6} xl={5} >
+      <Router>
       <Menu id="nav" onClick={handleClick} selectedKeys={[menu]} mode="horizontal">
         <Menu.Item key="/home">
         <Link to="/">首页</Link>
@@ -41,30 +36,19 @@ function App() {
         <GithubOutlined />github
         </Menu.Item>
         </Menu>
+        </Router>
       </Col>
       </Row>
       </header>
       <div id="content">
-        <Switch>
-        <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/test">
-            <Test />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+        <Routers/>
       </div>
       <footer>
         <div className="align-center">
         © 2020-2020 buzhifangxue.com 版权所有<Button target="_blank" type="link" href="http://www.beian.miit.gov.cn/">蜀ICP备20006050号</Button>
         </div>
         </footer>
-      </Router>
       </ThemeContext.Provider>
-      </ErrorBoundary>
     </div>
   );
 }
