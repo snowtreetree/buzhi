@@ -1,4 +1,4 @@
-module.exports = {
-    arrowParens:'always',
-    trailingComma:'none'
-  };
+// module.exports = {
+//     arrowParens:'always',
+//     trailingComma:'none'
+//   };
