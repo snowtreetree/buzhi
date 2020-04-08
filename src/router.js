@@ -5,7 +5,7 @@ import Home from "./pages/home";
 import About from "./pages/about";
 import MineClearance from "./pages/mineClearance";
 
-export default () => {
+function Routers() {
   return (
     <Router>
       <Switch>
@@ -25,3 +25,5 @@ export default () => {
     </Router>
   );
 };
+
+export default Routers
