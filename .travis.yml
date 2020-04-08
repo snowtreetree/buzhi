@@ -25,6 +25,7 @@ script:
 
 after_success:
   - cd build
+  - ls -a
   - scp -o stricthostkeychecking=no  -r ./* root@106.14.156.134:/www/buzhi
 
 # deploy:
