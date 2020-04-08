@@ -5,23 +5,23 @@ const { Option } = Select;
 function MineClearance() {
   // easy , Medium, High
   const [level, setLevel] = useState("Easy");
-  const [number] = useState({
-    Easy: {
-      mine: 10,
-      high: 10,
-      width: 8
-    },
-    Medium: {
-      mine: 40,
-      high: 14,
-      width: 18
-    },
-    High: {
-      mine: 99,
-      high: 20,
-      width: 24
-    }
-  });
+  // const [number] = useState({
+  //   Easy: {
+  //     mine: 10,
+  //     high: 10,
+  //     width: 8
+  //   },
+  //   Medium: {
+  //     mine: 40,
+  //     high: 14,
+  //     width: 18
+  //   },
+  //   High: {
+  //     mine: 99,
+  //     high: 20,
+  //     width: 24
+  //   }
+  // });
 
   const handleChange = (value) => {
     setLevel(value);
