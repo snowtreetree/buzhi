@@ -8,7 +8,7 @@ import { ThemeContext } from "./utils/context";
 
 function App() {
   const [menu, setMenu] = useState(window.location.pathname);
-  const handleClick = e => {
+  const handleClick = (e) => {
     if (e.key === "github") {
       window.open("https://github.com/snowtreetree/buzhi");
       return;
