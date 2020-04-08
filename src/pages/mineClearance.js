@@ -23,7 +23,7 @@ function MineClearance() {
     }
   });
 
-  const handleChange = value => {
+  const handleChange = (value) => {
     setLevel(value);
   };
 
