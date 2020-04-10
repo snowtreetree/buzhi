@@ -10,6 +10,7 @@ git:
 branches: 
   only: 
     - master
+    - dev
 
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.13.0
