@@ -5,7 +5,7 @@ branch=$TRAVIS_BRANCH
 echo $branch
 
 cd build
-# ls -a
+ls -a
 
 if [ $branch = 'master' ]
 then
