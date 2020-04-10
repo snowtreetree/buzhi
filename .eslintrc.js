@@ -1,8 +1,19 @@
 module.exports = {
-    // "plugins":["prettier"],
-    // "extends": ["react-app","eslint:recommended", "plugin:react/recommended","prettier/react",],
-    // "rules": {
-    //     "prettier/prettier": "error"
-    //   }
-    extends:"react-app",
+    root:true,
+    parser: "babel-eslint",
+    plugins:["react",'prettier'],
+    extends:["react-app","eslint:recommended", "plugin:react/recommended","prettier/react",],
+    rules:{
+        "semi": ["error", "always"],
+        "indent": ["error", 2],
+        "quotes":["error",'double'],
+        "prettier/prettier": "error"
+    },
+    parserOptions:{
+        sourceType:'module',
+        // "env": { "es6": true } 
+    },
+    globals:{
+        // 定义全局变量
+    }
 }
