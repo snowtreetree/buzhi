@@ -24,6 +24,6 @@ function Routers() {
       </Switch>
     </Router>
   );
-};
+}
 
-export default Routers
+export default Routers;

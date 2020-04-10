@@ -3,7 +3,7 @@ import { ThemeContext } from "../utils/context";
 import { Button } from "antd";
 
 const initState = {
-  count: 2,
+  count: 2
 };
 
 function reducer(state, action) {

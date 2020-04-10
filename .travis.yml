@@ -25,6 +25,7 @@ install:
   - yarn
 
 script: 
+  - npm run lint
   - yarn build
 
 after_success:

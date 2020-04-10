@@ -5,7 +5,6 @@ module.exports = {
     extends:["react-app","eslint:recommended", "plugin:react/recommended","prettier/react",],
     rules:{
         "semi": ["error", "always"],
-        "indent": ["error", 2],
         "quotes":["error",'double'],
         "prettier/prettier": "error"
     },
