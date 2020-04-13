@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-
 class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
@@ -8,21 +7,18 @@ class ErrorBoundary extends Component {
       hasError: false
     };
   }
-
+  componentDidCatch(err) {
+    console.log(err);
+  }
   static getDerivedStateFromError(error) {
-    console.log(error);
     return { hasError: true };
   }
-
-  componentDidCatch(error, errorInfo) {
-    console.log(error, errorInfo);
-  }
-
   render() {
-    if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>;
-    }
-    return this.props.children;
+    const {
+      state: { hasError },
+      props
+    } = this;
+    return hasError ? <div>Something went wrong.</div> : props.children;
   }
 }
 
