@@ -11,4 +11,6 @@ const refButton = React.forwardRef((props, ref) => {
   );
 });
 
+refButton.displayName = "refButton";
+
 export default refButton;

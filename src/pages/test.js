@@ -3,6 +3,7 @@ import Use from "./use";
 import { Button } from "antd";
 import RefButton from "../components/refButton";
 import hoc from "../components/hoc";
+import PropTypes from "prop-types";
 
 class WrappedComponent extends Component {
   constructor(props) {
@@ -35,5 +36,9 @@ function About(params) {
     </div>
   );
 }
+
+WrappedComponent.propTypes = {
+  author: PropTypes.string
+};
 
 export default About;
