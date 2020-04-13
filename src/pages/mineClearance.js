@@ -1,30 +1,72 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useReducer, useCallback } from "react";
 import { PageHeader, Select, Row, Col } from "antd";
+import "../styles/mineClearance.css";
 const { Option } = Select;
+const styles = {
+  minebox: {
+    textAlign: "center",
+    display: "inline-block",
+    lineHeight: "40px",
+    cursor: "pointer"
+  }
+};
 
 function MineClearance() {
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case "add":
+        return { value: state.value + 1 };
+      case "dec":
+        return { value: state.value - 1 };
+      default:
+        return { value: state.value + 1 };
+    }
+  };
   // easy , Medium, High
   const [level, setLevel] = useState("Easy");
-  // const [number] = useState({
-  //   Easy: {
-  //     mine: 10,
-  //     high: 10,
-  //     width: 8
-  //   },
-  //   Medium: {
-  //     mine: 40,
-  //     high: 14,
-  //     width: 18
-  //   },
-  //   High: {
-  //     mine: 99,
-  //     high: 20,
-  //     width: 24
-  //   }
-  // });
+  const [core, dispatch] = useReducer(reducer, { value: 1 });
+  const [number] = useState({
+    Easy: {
+      mine: 10,
+      height: 10,
+      width: 8
+    },
+    Medium: {
+      mine: 40,
+      height: 14,
+      width: 18
+    },
+    High: {
+      mine: 99,
+      height: 20,
+      width: 24
+    }
+  });
+  const length = {
+    Easy: 40,
+    Medium: 30,
+    High: 25
+  };
+  const [heightAndWidth, setHeightAndWidth] = useState([length[level]]);
+  const [params, setParams] = useState(number[level]);
+
+  useEffect(() => {
+    setParams(number[level]);
+    setHeightAndWidth(length[level]);
+  }, [length, level, number, params, setHeightAndWidth]);
+
+  const memoizedCallback = useCallback(() => {
+    return core;
+  }, [core]);
+  console.log("memoizedCallback", memoizedCallback());
 
   const handleChange = (value) => {
     setLevel(value);
+  };
+
+  const handleMinceClick = (ind, index) => {
+    dispatch({ type: ind % 2 ? "add" : "dec" });
+    console.log(index, ind);
   };
 
   return (
@@ -43,10 +85,42 @@ function MineClearance() {
             <Option value="High">高级</Option>
           </Select>
         </Col>
-        {/* <Col span={6} style={{textAlign:'center'}}>分数：</Col> */}
-
-        {/* <Col span={6}></Col> */}
+        <Col span={6} style={{ textAlign: "center" }}>
+          分数：{core.value}
+        </Col>
       </Row>
+      <div style={{ margin: "20px" }}>
+        {Array(params.height)
+          .fill(1)
+          .map((item, index) => (
+            <Row justify="center" key={index}>
+              {Array(params.width)
+                .fill(1)
+                .map((item, ind) => (
+                  <div
+                    style={{
+                      ...styles.minebox,
+                      height: heightAndWidth + "px",
+                      width: heightAndWidth + "px",
+                      lineHeight: heightAndWidth + "px"
+                    }}
+                    className={`${
+                      (index % 2 && ind % 2) || (!(index % 2) && !(ind % 2))
+                        ? "odd"
+                        : "even"
+                    } `}
+                    flex="1"
+                    key={ind}
+                    onClick={() => handleMinceClick(ind, index)}
+                  >
+                    {index}
+                    {ind}
+                  </div>
+                ))}
+            </Row>
+          ))}
+        <Col span={6}></Col>
+      </div>
     </div>
   );
 }

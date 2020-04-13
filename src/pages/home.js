@@ -1,7 +1,7 @@
 import React from "react";
 import Use from "./use";
 
-function Home(params) {
+function Home() {
   return (
     <div>
       Home
