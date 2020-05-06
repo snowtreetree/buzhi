@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useReducer, useCallback } from "react";
 import { PageHeader, Select, Row, Col } from "antd";
 import "../styles/mineClearance.css";
+import { getRandomFromArray } from "../utils/util";
+
 const { Option } = Select;
 const styles = {
   minebox: {
@@ -53,6 +55,14 @@ function MineClearance() {
   useEffect(() => {
     setParams(number[level]);
     setHeightAndWidth(length[level]);
+    console.log(
+      getRandomFromArray(
+        Array(number[level].width)
+          .fill(1)
+          .map((item, index) => index),
+        number[level].width / 2
+      )
+    );
   }, [length, level, number, params, setHeightAndWidth]);
 
   const memoizedCallback = useCallback(() => {
@@ -112,10 +122,7 @@ function MineClearance() {
                     flex="1"
                     key={ind}
                     onClick={() => handleMinceClick(ind, index)}
-                  >
-                    {index}
-                    {ind}
-                  </div>
+                  ></div>
                 ))}
             </Row>
           ))}
