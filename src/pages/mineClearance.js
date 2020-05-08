@@ -51,19 +51,35 @@ function MineClearance() {
   };
   const [heightAndWidth, setHeightAndWidth] = useState([length[level]]);
   const [params, setParams] = useState(number[level]);
-
+  const [test, setTest] = useState({ b: 1 });
+  const [test2, setTest2] = useState({ b: 1 });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     setParams(number[level]);
     setHeightAndWidth(length[level]);
-    console.log(
-      getRandomFromArray(
-        Array(number[level].width)
-          .fill(1)
-          .map((item, index) => index),
-        number[level].width / 2
-      )
-    );
-  }, [length, level, number, params, setHeightAndWidth]);
+    // 随机打点
+    console.log(9999);
+    setTimeout(() => {
+      // alert(999);
+      // console.log(88888);
+    });
+    setTimeout(() => {
+      console.log(88888);
+      // setTest({ b: 2 });
+    }, 0);
+    setTimeout(() => {
+      setTest2(Object.assign(test, { b: 3 }));
+    }, 400);
+    // console.log(
+    //   getRandomFromArray(
+    //     Array(number[level].width * number[level].height)
+    //       .fill(1)
+    //       .map((item, index) => index),
+    //     number[level].mine
+    //   ).sort((a, b) => a - b)
+    // );
+    // [length, level, number, params, setHeightAndWidth]
+  });
 
   const memoizedCallback = useCallback(() => {
     return core;
@@ -97,6 +113,7 @@ function MineClearance() {
         </Col>
         <Col span={6} style={{ textAlign: "center" }}>
           分数：{core.value}
+          {test.b}
         </Col>
       </Row>
       <div style={{ margin: "20px" }}>
