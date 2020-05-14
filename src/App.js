@@ -55,7 +55,7 @@ function App() {
           </div>
           <footer>
             <div className="align-center">
-              © 2020-2020 buzhifangxue.com 版权所有
+              © 2020-2020 buzhifangxue.com 版权所有zxl
               <Button
                 target="_blank"
                 type="link"
