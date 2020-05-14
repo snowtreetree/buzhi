@@ -67,9 +67,9 @@ function MineClearance() {
       console.log(88888);
       // setTest({ b: 2 });
     }, 0);
-    setTimeout(() => {
-      setTest2(Object.assign(test, { b: 3 }));
-    }, 400);
+    // setTimeout(() => {
+    // setTest2(Object.assign(test, { b: 3 }));
+    // }, 400);
     // console.log(
     //   getRandomFromArray(
     //     Array(number[level].width * number[level].height)
