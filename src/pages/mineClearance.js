@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useReducer, useCallback } from "react";
 import { PageHeader, Select, Row, Col } from "antd";
 import "../styles/mineClearance.css";
-import { getRandomFromArray } from "../utils/util";
+// import { getRandomFromArray } from "../utils/util";
 
 const { Option } = Select;
 const styles = {
@@ -51,8 +51,8 @@ function MineClearance() {
   };
   const [heightAndWidth, setHeightAndWidth] = useState([length[level]]);
   const [params, setParams] = useState(number[level]);
-  const [test, setTest] = useState({ b: 1 });
-  const [test2, setTest2] = useState({ b: 1 });
+  // const [test, setTest] = useState({ b: 1 });
+  // const [test2, setTest2] = useState({ b: 1 });
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     setParams(number[level]);
