@@ -8,6 +8,7 @@
     "babel-plugin-import": "^1.13.0",
     "babel-plugin-named-asset-import": "^0.3.6",
     "babel-preset-react-app": "^9.1.1",
+    "rc-menu": "^8.3.1",
     "react": "^16.13.0",
     "react-app-polyfill": "^1.0.6",
     "react-dom": "^16.13.0",

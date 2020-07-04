@@ -21,10 +21,9 @@ function reducer(state, action) {
 function Use() {
   const [state, dispatch] = useReducer(reducer, initState);
   const theme = useContext(ThemeContext);
+  console.log(theme);
   return (
     <>
-      2{/* <div>{this.context}</div> */}
-      {theme}
       {state.count}
       <Button onClick={() => dispatch({ type: "increment" })}>add</Button>
       <Button onClick={() => dispatch({ type: "decrement" })}>decrement</Button>
