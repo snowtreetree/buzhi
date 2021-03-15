@@ -11,16 +11,16 @@ import { ThemeContext, THEMETYPE, themes } from "./utils/context";
 
 // class 重写
 
-class App extends Component {
+class App extends Component<{},{menu:string[]}> {
   constructor(props) {
     super(props);
     this.state = {
-      menu: window.location.pathname
+      menu: [window.location.pathname]
     };
   }
   componentDidMount() {
     this.setState({
-      menu: window.location.pathname
+      menu: [window.location.pathname]
     });
   }
   handleClick = (e) => {
